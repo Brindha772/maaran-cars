@@ -1,0 +1,20 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "xprotocol",
+                "enableSsl": "Disabled"
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 33060,
+            "driver": "MySQL",
+            "name": "project",
+            "database": "maaran_cars",
+            "username": "root",
+            "password": "New@project@#77$2",
+            "connectionTimeout": 30
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run The Maaran Cars Flask server",
+      "type": "shell",
+      "command": "flask --app app run --debug",
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ]
+}

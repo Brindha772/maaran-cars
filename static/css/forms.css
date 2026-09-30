@@ -1,0 +1,396 @@
+/* =========================================================
+   REGISTRATION CHOICES
+   ========================================================= */
+
+.registration-choices {
+    align-self: center;
+}
+
+.choice-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 220px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.choice-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 30px rgba(25, 25, 112, 0.25);
+}
+
+.choice-arrow {
+    align-self: flex-end;
+    font-size: 25px;
+    color: var(--midnight-blue);
+}
+
+
+/* =========================================================
+   FORM & DASHBOARD PAGES
+   ========================================================= */
+
+.form-page,
+.dashboard-page {
+    min-height: 100vh;
+    background: #000000;
+    color: #FFFFFF;
+}
+
+/* =========================================================
+   REGISTRATION / DASHBOARD CONTAINER
+   ========================================================= */
+
+.registration-shell,
+.dashboard-shell {
+    width: min(1180px, calc(100% - 64px));
+    margin: 0 auto;
+    padding: 70px 0 110px;
+}
+
+
+/* =========================================================
+   REGISTRATION LAYOUT
+   ========================================================= */
+
+.registration-shell {
+    display: grid;
+    grid-template-columns: 34% 66%;
+    gap: 60px;
+}
+
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+.registration-intro h1,
+.success-shell h1,
+.dashboard-heading h1 {
+    font-size: clamp(45px, 5.3vw, 72px);
+}
+
+.registration-intro > p:last-child {
+    color: var(--light-gray);
+    max-width: 280px;
+    margin-top: 28px;
+}
+
+
+/* =========================================================
+   REGISTRATION FORM
+   ========================================================= */
+
+.registration-form {
+    background: var(--card-black);
+    padding: 38px 42px;
+    border-top: 4px solid var(--midnight-blue);
+}
+
+
+/* =========================================================
+   FORM TITLE
+   ========================================================= */
+
+.form-title,
+.section-label {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.form-title span,
+.section-label span {
+    color: var(--midnight-blue);
+    font: 600 12px var(--display);
+}
+
+.form-title h2,
+.section-label h2 {
+    font-size: 24px;
+    letter-spacing: -1px;
+}
+
+
+/* =========================================================
+   FORM FIELDS
+   ========================================================= */
+
+.field-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 25px;
+}
+
+.field-grid label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 12px 0;
+}
+
+.field-wide {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   TEXTAREA
+   ========================================================= */
+
+textarea {
+    display: block;
+    width: 100%;
+    border: 1px solid var(--border-gray);
+    background: var(--black);
+    padding: 11px;
+    color: var(--white);
+    font: 400 13px var(--body);
+    resize: vertical;
+    outline: 0;
+}
+
+textarea:focus {
+    border-color: var(--midnight-blue);
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+   ========================================================= */
+
+.server-error {
+    color: #ff8a80;
+    background: #180808;
+    border: 1px solid #4a1717;
+    padding: 12px;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SUCCESS PAGE
+   ========================================================= */
+
+.success-shell {
+    width: min(580px, calc(100% - 40px));
+    margin: 18vh auto;
+    text-align: center;
+}
+
+.success-shell .eyebrow {
+    justify-content: center;
+}
+
+.success-shell p {
+    color: var(--light-gray);
+    max-width: 390px;
+    margin: 20px auto 30px;
+}
+
+.success-mark {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: var(--midnight-blue);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+    margin: 0 auto 26px;
+    font-size: 25px;
+}
+
+
+/* =========================================================
+   ADMIN DASHBOARD USER
+   ========================================================= */
+
+.dashboard-user {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: var(--light-gray);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   DASHBOARD HEADING
+   ========================================================= */
+
+.dashboard-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 65px;
+}
+
+
+/* =========================================================
+   DASHBOARD COUNTS
+   ========================================================= */
+
+.dashboard-counts {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0 12px;
+    align-items: baseline;
+    text-align: right;
+}
+
+.dashboard-counts strong {
+    font: 600 36px var(--display);
+    color: var(--midnight-blue);
+}
+
+.dashboard-counts span {
+    font-size: 12px;
+    color: var(--light-gray);
+}
+
+
+/* =========================================================
+   DATA SECTIONS
+   ========================================================= */
+
+.data-section {
+    border-top: 1px solid var(--border-gray);
+    padding: 32px 0 75px;
+}
+
+
+/* =========================================================
+   DATA GRID
+   ========================================================= */
+
+.data-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+
+/* =========================================================
+   DATA CARD
+   ========================================================= */
+
+.data-card {
+    background: var(--card-black);
+    border: 1px solid var(--border-gray);
+    padding: 26px;
+}
+
+.data-card-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    color: var(--midnight-blue);
+    font: 600 11px var(--display);
+}
+
+.data-card time {
+    color: var(--light-gray);
+    font: 400 10px var(--body);
+}
+
+.data-card h3 {
+    font-size: 23px;
+    letter-spacing: -1px;
+    margin: 28px 0 20px;
+}
+
+.data-card h3 small {
+    font: 400 12px var(--body);
+    color: var(--light-gray);
+    letter-spacing: 0;
+}
+
+
+/* =========================================================
+   DATA DETAILS
+   ========================================================= */
+
+.data-card dl {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 9px;
+    margin: 0;
+    font-size: 12px;
+}
+
+.data-card dt {
+    color: var(--light-gray);
+}
+
+.data-card dd {
+    margin: 0;
+    color: var(--white);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state {
+    color: var(--light-gray);
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .registration-shell {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding-top: 45px;
+    }
+
+    .registration-intro > p:last-child {
+        margin-top: 20px;
+    }
+
+    .registration-form {
+        padding: 28px 22px;
+    }
+
+    .field-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .field-wide {
+        grid-column: auto;
+    }
+
+    .dashboard-shell {
+        padding-top: 45px;
+    }
+
+    .dashboard-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 30px;
+        padding-bottom: 45px;
+    }
+
+    .dashboard-counts {
+        text-align: left;
+    }
+
+    .data-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .data-card dl {
+        grid-template-columns: 115px 1fr;
+    }
+
+    .dashboard-user span {
+        display: none;
+    }
+}

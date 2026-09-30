@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta
+        name="description"
+        content="The Maaran Cars offers quality pre-owned and luxury cars in Tirupur."
+    >
+
+    <title>The Maaran Cars | Quality pre-owned cars</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="site-header">
+
+        <a
+            class="brand"
+            href="#top"
+            aria-label="The Maaran Cars home"
+        >
+            the maaran cars
+        </a>
+
+        <nav
+            class="desktop-nav"
+            aria-label="Main navigation"
+        >
+            <a href="#about">About us</a>
+            <a href="#services">Our promise</a>
+            <a href="#join">Register</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button
+            class="button button-dark button-small"
+            data-modal-open="login-modal"
+        >
+            Admin login
+            <span>&#8599;</span>
+        </button>
+
+    </header>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main id="top">
+
+
+        <!-- ================= HERO SECTION ================= -->
+        <section class="hero section-wrap">
+
+            <div class="hero-copy reveal">
+
+                <p class="eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    Quality meets luxury
+                </p>
+
+                <h1>
+                    Drive home<br>
+                    <em>your dream car.</em>
+                </h1>
+
+                <p class="hero-text">
+                    Welcome to The Maaran Cars, your trusted destination
+                    for carefully selected pre-owned and luxury vehicles
+                    in Tirupur.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a
+                        class="button button-coral"
+                        href="#join"
+                    >
+                        Find your car
+                        <span>&#8599;</span>
+                    </a>
+
+                    <a
+                        class="text-link"
+                        href="#about"
+                    >
+                        Our story
+                        <span>&#8594;</span>
+                    </a>
+
+                </div>
+
+                <div class="hero-proof">
+                    <strong>Since 2022</strong>
+                    <span>Serving valued customers</span>
+                </div>
+
+            </div>
+
+
+            <!-- Featured vehicle showcase -->
+            <div
+                class="hero-gallery reveal reveal-delay"
+                data-car-gallery
+                aria-label="Featured vehicle gallery"
+            >
+                <div class="gallery-stage">
+                    <button
+                        class="gallery-image-button"
+                        type="button"
+                        data-gallery-next
+                        aria-label="Show next featured vehicle"
+                    >
+                        <img
+                            data-gallery-image
+                            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85"
+                            alt="Featured luxury sports coupe"
+                        >
+                    </button>
+
+                    <div class="gallery-overlay">
+                        <span>Click the image to browse cars</span>
+                        <span data-gallery-count aria-live="polite">01 / 03</span>
+                    </div>
+
+                    <div class="gallery-controls" aria-label="Vehicle gallery controls">
+                        <button type="button" data-gallery-previous aria-label="Previous vehicle">&#8592;</button>
+                        <button type="button" data-gallery-next aria-label="Next vehicle">&#8594;</button>
+                    </div>
+                </div>
+
+                <div class="gallery-details">
+                    <div class="gallery-heading">
+                        <p class="gallery-kicker">Featured vehicle</p>
+                        <h2 data-gallery-title>MARUTI SUZUKI VITARA BREEZA VDI AMT</h2>
+                    </div>
+
+                    <p class="gallery-description" data-gallery-description>
+                        Single ownership, diesel, automatic transmission, and full showroom service record.
+                    </p>
+
+                    <dl class="gallery-specs">
+                        <div><dt>Price</dt><dd data-gallery-spec-value="price">&#8377;645,000.00</dd></div>
+                        <div><dt>Make / model</dt><dd data-gallery-spec-value="make-model">Vitara Breeza VDI AMT</dd></div>
+                        <div><dt>Year / registered</dt><dd data-gallery-spec-value="year">2018 / 2018</dd></div>
+                        <div><dt>Ownership</dt><dd data-gallery-spec-value="ownership">Single owner</dd></div>
+                        <div><dt>KM driven</dt><dd data-gallery-spec-value="km">120K km</dd></div>
+                        <div><dt>Fuel</dt><dd data-gallery-spec-value="fuel">Diesel</dd></div>
+                        <div><dt>Transmission</dt><dd data-gallery-spec-value="transmission">Automatic (AMT)</dd></div>
+                        <div><dt>Registration</dt><dd data-gallery-spec-value="registration">TN 18</dd></div>
+                        <div><dt>Reg. number</dt><dd data-gallery-spec-value="number">Not provided</dd></div>
+                        <div><dt>Service history</dt><dd data-gallery-spec-value="service">Full showroom record</dd></div>
+                        <div><dt>Insurance</dt><dd data-gallery-spec-value="insurance">Expired</dd></div>
+                        <div><dt>Tyres</dt><dd data-gallery-spec-value="tyres">Not provided</dd></div>
+                    </dl>
+
+                    <a class="gallery-enquire" href="#contact">
+                        Ask about current status <span>&#8594;</span>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ================= TRUST STRIP ================= -->
+        <section class="trust-strip">
+
+            <div class="section-wrap trust-inner">
+
+                <span>Trusted by valued customers</span>
+
+                <span class="trust-line"></span>
+
+                <strong>Pre-owned</strong>
+                <strong>Luxury</strong>
+                <strong>Inspected</strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT SECTION ================= -->
+        <section
+            class="why section-wrap"
+            id="about"
+        >
+
+            <div class="section-heading reveal">
+
+                <p class="eyebrow">
+                    About The Maaran Cars
+                </p>
+
+                <h2>
+                    A trusted name<br>
+                    in <em>every drive.</em>
+                </h2>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+                <!-- Feature 01 -->
+                <article class="feature-card feature-coral reveal">
+
+                    <span class="feature-icon">01</span>
+
+                    <h3>
+                        Carefully<br>
+                        selected cars.
+                    </h3>
+
+                    <p>
+                        Explore a curated selection of pre-owned
+                        and luxury vehicles chosen for quality and value.
+                    </p>
+
+                    <a href="#join">
+                        Browse cars
+                        <span>&#8594;</span>
+                    </a>
+
+                </article>
+
+
+                <!-- Feature 02 -->
+                <article class="feature-card feature-cream reveal reveal-delay">
+
+                    <span class="feature-icon">02</span>
+
+                    <h3>
+                        Value beyond<br>
+                        the price.
+                    </h3>
+
+                    <p>
+                        We focus on exceptional service and an honest,
+                        comfortable car-buying experience.
+                    </p>
+
+                    <a href="#join">
+                        Talk to us
+                        <span>&#8594;</span>
+                    </a>
+
+                </article>
+
+
+                <!-- Feature 03 -->
+                <article class="feature-card feature-dark reveal reveal-delay-two">
+
+                    <span class="feature-icon">03</span>
+
+                    <h3>
+                        Sell with<br>
+                        confidence.
+                    </h3>
+
+                    <p>
+                        Ready to sell your car? Connect with a team
+                        that values your vehicle and your time.
+                    </p>
+
+                    <a href="#join">
+                        Sell your car
+                        <span>&#8594;</span>
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= OUR PROMISE ================= -->
+        <section
+            class="how section-wrap"
+            id="services"
+        >
+
+            <div class="how-copy reveal">
+
+                <p class="eyebrow">
+                    Our promise
+                </p>
+
+                <h2>
+                    More than a car.<br>
+                    <em>A better journey.</em>
+                </h2>
+
+                <p>
+                    Established in 2022, The Maaran Cars is dedicated
+                    to redefining the car-buying experience with value,
+                    service, and meticulously inspected vehicles.
+                </p>
+
+            </div>
+
+
+            <div class="steps reveal reveal-delay">
+
+                <!-- Step 01 -->
+                <div class="step">
+
+                    <span>01</span>
+
+                    <div>
+                        <h3>Discover quality</h3>
+
+                        <p>
+                            Find pre-owned and luxury cars selected
+                            with care.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- Step 02 -->
+                <div class="step">
+
+                    <span>02</span>
+
+                    <div>
+                        <h3>Buy with clarity</h3>
+
+                        <p>
+                            Get exceptional service and a straightforward
+                            experience.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- Step 03 -->
+                <div class="step">
+
+                    <span>03</span>
+
+                    <div>
+                        <h3>Drive away happy</h3>
+
+                        <p>
+                            Make your next move with confidence.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= REGISTRATION SECTION ================= -->
+        <section
+            class="join section-wrap"
+            id="join"
+        >
+
+            <div class="join-intro reveal">
+
+                <p class="eyebrow">
+                    Choose your path
+                </p>
+
+                <h2>
+                    Ready to make<br>
+                    <em>your move?</em>
+                </h2>
+
+                <p>
+                    Register as a buyer or seller. Your registration ID
+                    and submission time are created automatically.
+                </p>
+
+
+                <!-- Contact Details -->
+                <div
+                    class="contact-details"
+                    id="contact"
+                >
+
+                    <strong>Visit our showroom</strong>
+
+                    <span>
+                        35-C, Poonthotam, Chikkana College Road,<br>
+                        Anaipalaiyam Check Post Near,<br>
+                        Tirupur 641 603.
+                    </span>
+
+                    <a href="tel:+919363376591">
+                        +91 93633 76591
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Registration Choices -->
+            <div class="forms-grid registration-choices">
+
+                <!-- Buyer Registration -->
+                <a
+                    class="account-form choice-card"
+                    href="{{ url_for('buyer_register_page') }}"
+                >
+
+                    <div class="form-header">
+
+                        <span class="form-number">
+                            01
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Register as buyer
+                            </h3>
+
+                            <p>
+                                Tell us about the car you need.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <span class="choice-arrow">
+                        &#8599;
+                    </span>
+
+                </a>
+
+
+                <!-- Seller Registration -->
+                <a
+                    class="account-form seller-form choice-card"
+                    href="{{ url_for('seller_register_page') }}"
+                >
+
+                    <div class="form-header">
+
+                        <span class="form-number">
+                            02
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Register as seller
+                            </h3>
+
+                            <p>
+                                Share the vehicle you want to sell.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <span class="choice-arrow">
+                        &#8599;
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+
+        <div class="section-wrap footer-inner">
+
+            <a
+                class="brand"
+                href="#top"
+            >
+                the maaran cars
+            </a>
+
+            <p>
+                Quality cars. Happy journeys.
+            </p>
+
+            <span>
+                &copy; 2026 The Maaran Cars
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= ADMIN LOGIN MODAL ================= -->
+    <div
+        class="modal"
+        id="login-modal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="modal-backdrop"
+            data-modal-close
+        ></div>
+
+
+        <div
+            class="modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="login-title"
+        >
+
+            <button
+                class="modal-close"
+                data-modal-close
+                aria-label="Close login"
+            >
+                &times;
+            </button>
+
+
+            <p class="eyebrow">
+                Private access
+            </p>
+
+            <h2 id="login-title">
+                Admin <em>login.</em>
+            </h2>
+
+            <p class="modal-copy">
+                Sign in to manage The Maaran Cars.
+            </p>
+
+
+            <!-- Login Form -->
+            <form id="login-form">
+
+                <label>
+                    Email address
+
+                    <input
+                        name="email"
+                        type="email"
+                        placeholder="admin@example.com"
+                        required
+                    >
+                </label>
+
+
+                <label>
+                    Password
+
+                    <input
+                        name="password"
+                        type="password"
+                        placeholder="Your password"
+                        required
+                    >
+                </label>
+
+
+                <button
+                    class="button button-dark form-submit"
+                    type="submit"
+                >
+                    Sign in
+                    <span>&#8599;</span>
+                </button>
+
+
+                <p
+                    class="form-message"
+                    role="status"
+                ></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>

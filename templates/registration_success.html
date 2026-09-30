@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Registration Received | The Maaran Cars</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/forms.css') }}"
+    >
+</head>
+
+<body class="form-page">
+
+    <main class="success-shell">
+
+        <div class="success-mark">
+            &#10003;
+        </div>
+
+        <p class="eyebrow">
+            Registration received
+        </p>
+
+        <h1>
+            Thank you for<br>
+            <em>choosing us.</em>
+        </h1>
+
+        <p>
+            Your {{ registration_type }} registration has been saved.
+            Our Maaran Cars team will contact you soon.
+        </p>
+
+        <a
+            class="button button-dark"
+            href="{{ url_for('home') }}"
+        >
+            Return home
+            <span>&#8594;</span>
+        </a>
+
+    </main>
+
+</body>
+</html>

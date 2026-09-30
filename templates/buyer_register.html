@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Buyer Registration | The Maaran Cars</title>
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <!-- Form CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/forms.css') }}"
+    >
+</head>
+
+<body class="form-page">
+
+    <!-- ================= HEADER ================= -->
+    <header class="site-header">
+
+        <a
+            class="brand"
+            href="{{ url_for('home') }}"
+        >
+            the maaran cars
+        </a>
+
+        <a
+            class="text-link"
+            href="{{ url_for('home') }}"
+        >
+            Back home &#8592;
+        </a>
+
+    </header>
+
+
+    <!-- ================= REGISTRATION ================= -->
+    <main class="registration-shell">
+
+        <!-- Introduction -->
+        <div class="registration-intro">
+
+            <p class="eyebrow">
+                Buyer registration
+            </p>
+
+            <h1>
+                Tell us what<br>
+                <em>you are looking for.</em>
+            </h1>
+
+            <p>
+                Share a few details and our team will help you
+                find the right vehicle.
+            </p>
+
+        </div>
+
+
+        <!-- Buyer Registration Form -->
+        <form
+            class="registration-form"
+            method="post"
+            action="{{ url_for('register_buyer') }}"
+        >
+
+            <!-- Form Title -->
+            <div class="form-title">
+
+                <span>01</span>
+
+                <h2>
+                    Your requirements
+                </h2>
+
+            </div>
+
+
+            <!-- Server Error -->
+            {% if error %}
+
+                <p class="server-error">
+                    {{ error }}
+                </p>
+
+            {% endif %}
+
+
+            <!-- Form Fields -->
+            <div class="field-grid">
+
+                <!-- Phone -->
+                <label>
+                    Phone number *
+
+                    <input
+                        name="phone"
+                        type="tel"
+                        value="{{ values.phone|default('') }}"
+                        required
+                    >
+                </label>
+
+
+                <!-- Name -->
+                <label>
+                    Name *
+
+                    <input
+                        name="name"
+                        type="text"
+                        value="{{ values.name|default('') }}"
+                        required
+                    >
+                </label>
+
+
+                <!-- Place -->
+                <label>
+                    Place
+
+                    <input
+                        name="place"
+                        type="text"
+                        value="{{ values.place|default('') }}"
+                    >
+                </label>
+
+
+                <!-- Budget -->
+                <label>
+                    Budget
+
+                    <input
+                        name="budget"
+                        type="text"
+                        placeholder="e.g. Rs. 8 lakh"
+                        value="{{ values.budget|default('') }}"
+                    >
+                </label>
+
+
+                <!-- Requirement -->
+                <label class="field-wide">
+                    Requirement *
+
+                    <textarea
+                        name="requirement"
+                        rows="4"
+                        placeholder="What kind of car do you need?"
+                        required
+                    >{{ values.requirement|default('') }}</textarea>
+
+                </label>
+
+
+                <!-- Car Seen -->
+                <label class="field-wide">
+                    Car he/she saw
+
+                    <input
+                        name="car_seen"
+                        type="text"
+                        value="{{ values.car_seen|default('') }}"
+                        placeholder="Optional"
+                    >
+                </label>
+
+            </div>
+
+
+            <!-- Submit -->
+            <button
+                class="button button-coral form-submit"
+                type="submit"
+            >
+                Submit buyer registration
+                <span>&#8599;</span>
+            </button>
+
+        </form>
+
+    </main>
+
+</body>
+</html>

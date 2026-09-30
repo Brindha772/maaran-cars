@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Admin Dashboard | The Maaran Cars</title>
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <!-- Form / Dashboard CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/forms.css') }}"
+    >
+</head>
+
+<body class="dashboard-page">
+
+    <!-- ================= HEADER ================= -->
+    <header class="site-header">
+
+        <a
+            class="brand"
+            href="{{ url_for('home') }}"
+        >
+            the maaran cars
+        </a>
+
+        <div class="dashboard-user">
+
+            <span>
+                Signed in as {{ admin_name }}
+            </span>
+
+            <a
+                class="text-link"
+                href="{{ url_for('admin_logout') }}"
+            >
+                Log out
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= DASHBOARD ================= -->
+    <main class="dashboard-shell">
+
+        <!-- Dashboard Heading -->
+        <div class="dashboard-heading">
+
+            <div>
+
+                <p class="eyebrow">
+                    Private dashboard
+                </p>
+
+                <h1>
+                    Registration<br>
+                    <em>inbox.</em>
+                </h1>
+
+            </div>
+
+
+            <!-- Registration Counts -->
+            <div class="dashboard-counts">
+
+                <strong>
+                    {{ buyers|length }}
+                </strong>
+
+                <span>
+                    buyers
+                </span>
+
+                <strong>
+                    {{ sellers|length }}
+                </strong>
+
+                <span>
+                    sellers
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= ADMIN ACTIONS ================= -->
+        <nav class="admin-actions">
+
+            <a
+                class="button button-dark button-small"
+                href="{{ url_for('admin_monthly_report') }}"
+            >
+                Monthly report
+            </a>
+
+            <a
+                class="button button-coral button-small"
+                href="{{ url_for('admin_yearly_report') }}"
+            >
+                Yearly report
+            </a>
+
+        </nav>
+
+
+        <!-- Server Error -->
+        {% if error %}
+
+            <p class="server-error">
+                {{ error }}
+            </p>
+
+        {% endif %}
+
+
+        <!-- ================= BUYER REGISTRATIONS ================= -->
+        <section class="data-section">
+
+            <div class="section-label">
+
+                <span>01</span>
+
+                <h2>
+                    Buyer registrations
+                </h2>
+
+            </div>
+
+
+            {% if buyers %}
+
+                <div class="data-grid">
+
+                    {% for item in buyers %}
+
+                        <article class="data-card">
+
+                            <!-- Registration Header -->
+                            <div class="data-card-head">
+
+                                <strong>
+                                    {{ item.registration_id }}
+                                </strong>
+
+                                <time>
+                                    {{ item.created_at }}
+                                </time>
+
+                            </div>
+
+
+                            <!-- Buyer Name -->
+                            <h3>
+                                {{ item.name }}
+                            </h3>
+
+
+                            <!-- Buyer Details -->
+                            <dl>
+
+                                <dt>Phone</dt>
+                                <dd>
+                                    {{ item.phone }}
+                                </dd>
+
+
+                                <dt>Place</dt>
+                                <dd>
+                                    {{ item.place or 'Not provided' }}
+                                </dd>
+
+
+                                <dt>Requirement</dt>
+                                <dd>
+                                    {{ item.requirement }}
+                                </dd>
+
+
+                                <dt>Budget</dt>
+                                <dd>
+                                    {{ item.budget or 'Not provided' }}
+                                </dd>
+
+
+                                <dt>Car seen</dt>
+                                <dd>
+                                    {{ item.car_seen or 'Not provided' }}
+                                </dd>
+
+                            </dl>
+
+                        </article>
+
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <p class="empty-state">
+                    No buyer registrations yet.
+                </p>
+
+            {% endif %}
+
+        </section>
+
+
+        <!-- ================= SELLER REGISTRATIONS ================= -->
+        <section class="data-section">
+
+            <div class="section-label">
+
+                <span>02</span>
+
+                <h2>
+                    Seller registrations
+                </h2>
+
+            </div>
+
+
+            {% if sellers %}
+
+                <div class="data-grid">
+
+                    {% for item in sellers %}
+
+                        <article class="data-card">
+
+                            <!-- Registration Header -->
+                            <div class="data-card-head">
+
+                                <strong>
+                                    {{ item.registration_id }}
+                                </strong>
+
+                                <time>
+                                    {{ item.created_at }}
+                                </time>
+
+                            </div>
+
+
+                            <!-- Vehicle Name -->
+                            <h3>
+
+                                {{ item.car_name }}
+
+                                <small>
+                                    {{ item.car_model }}
+                                </small>
+
+                            </h3>
+
+
+                            <!-- Seller / Vehicle Details -->
+                            <dl>
+
+                                <dt>Owner</dt>
+                                <dd>
+                                    {{ item.name }}
+                                </dd>
+
+
+                                <dt>Place</dt>
+                                <dd>
+                                    {{ item.place or 'Not provided' }}
+                                </dd>
+
+
+                                <dt>Variant / year</dt>
+                                <dd>
+                                    {{ item.car_variant or '-' }}
+                                    /
+                                    {{ item.year or '-' }}
+                                </dd>
+
+
+                                <dt>Fuel / transmission</dt>
+                                <dd>
+                                    {{ item.fuel or '-' }}
+                                    /
+                                    {{ item.transmission or '-' }}
+                                </dd>
+
+
+                                <dt>Price</dt>
+                                <dd>
+                                    {{ item.expecting_price or 'Not provided' }}
+                                </dd>
+
+
+                                <dt>Condition</dt>
+                                <dd>
+                                    Dents: {{ item.dents or '-' }};
+                                    Scratches: {{ item.scratches or '-' }}
+                                </dd>
+
+                            </dl>
+
+                        </article>
+
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <p class="empty-state">
+                    No seller registrations yet.
+                </p>
+
+            {% endif %}
+
+        </section>
+
+    </main>
+
+</body>
+</html>

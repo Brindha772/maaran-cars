@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ report_title }} | The Maaran Cars</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body class="dashboard-page">
+    <header class="site-header">
+      <a class="brand" href="{{ url_for('home') }}">the maaran cars</a>
+      <div class="dashboard-user">
+        <span>Signed in as {{ admin_name }}</span>
+        <a class="text-link" href="{{ url_for('admin_logout') }}">Log out</a>
+      </div>
+    </header>
+
+    <main class="dashboard-shell report-shell">
+      <div class="report-header">
+        <div>
+          <p class="eyebrow">Admin analytics</p>
+          <h1>{{ report_title }}<br><em>overview.</em></h1>
+        </div>
+        <nav class="report-links" aria-label="Report navigation">
+          <a href="{{ url_for('admin_monthly_report') }}" class="{% if report_type == 'monthly' %}active{% endif %}">Monthly</a>
+          <a href="{{ url_for('admin_yearly_report') }}" class="{% if report_type == 'yearly' %}active{% endif %}">Yearly</a>
+          <a href="{{ url_for('admin_dashboard') }}">Back to dashboard</a>
+        </nav>
+      </div>
+
+      <div class="report-summary">
+        <div class="summary-card">
+          <span>Buyers</span>
+          <strong>{{ total_buyers }}</strong>
+        </div>
+        <div class="summary-card">
+          <span>Sellers</span>
+          <strong>{{ total_sellers }}</strong>
+        </div>
+        <div class="summary-card">
+          <span>Total</span>
+          <strong>{{ total_registrations }}</strong>
+        </div>
+      </div>
+
+      <section class="report-table-wrap">
+        <table class="report-table" aria-label="{{ report_title }} table">
+          <thead>
+            <tr>
+              <th data-sort data-index="0" data-direction="asc">Period</th>
+              <th data-sort data-index="1" data-direction="asc">Buyer count</th>
+              <th data-sort data-index="2" data-direction="asc">Seller count</th>
+              <th data-sort data-index="3" data-direction="asc">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if report_rows %}
+              {% for row in report_rows %}
+                <tr>
+                  <td>{{ row.period_label }}</td>
+                  <td>{{ row.buyer_count }}</td>
+                  <td>{{ row.seller_count }}</td>
+                  <td>{{ row.total_count }}</td>
+                </tr>
+              {% endfor %}
+            {% else %}
+              <tr>
+                <td colspan="4" class="report-empty">No registration data available for this period.</td>
+              </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>
