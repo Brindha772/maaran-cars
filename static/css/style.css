@@ -1,35 +1,3 @@
-/*
- * Maaran Cars — Dark Automotive Theme
- *
- * Main Background : #0D1117
- * Card Surface    : #151B22
- * Steel Neutral   : #2B3440
- * Steel Text      : #8C98A6
- * Main Text       : #F2F5F7
- * Vibrant Accent  : #39D5E6
- * Accent Dark     : #168FA3
- */
-
-/*
- * Maaran Cars — Main Stylesheet
- * Cleaned and organized from the supplied CSS.
- *
- * Sections:
- * 1. Variables & Base
- * 2. Header & Navigation
- * 3. Buttons
- * 4. Hero
- * 5. Trust Strip
- * 6. Why Section
- * 7. How Section
- * 8. Forms
- * 9. Footer
- * 10. Modal
- * 11. Animations
- * 12. Responsive Design
- * 13. Admin / Reports
- */
-
 .brand-mark {
     width:42px;
     height:31px;

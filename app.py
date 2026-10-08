@@ -5,7 +5,7 @@ from uuid import uuid4
 
 import mysql.connector
 from dotenv import load_dotenv
-from flask import Flask, jsonify, redirect, render_template, request, session, url_for
+from flask import Flask, jsonify, redirect, render_template, request, send_from_directory, session, url_for
 from werkzeug.security import check_password_hash, generate_password_hash
 
 load_dotenv()
@@ -93,6 +93,11 @@ def home():
     return render_template("index.html")
 
 
+@app.get("/images/<path:filename>")
+def car_image(filename):
+    return send_from_directory(os.path.join(app.root_path, "public", "images"), filename)
+
+
 @app.get("/register/buyer")
 def buyer_register_page():
     return render_template("buyer_register.html", values={})
@@ -169,6 +174,45 @@ def register_seller():
             connection.close()
 
 
+@app.post("/api/feedback/<role>")
+def submit_feedback(role):
+    if role not in ("buyer", "seller"):
+        return jsonify({"message": "Invalid feedback type."}), 400
+
+    payload = request.form
+    name = clean(payload.get("name"))
+    rating_value = payload.get("rating")
+    comment = clean(payload.get("comment"))
+
+    try:
+        rating = int(rating_value)
+    except (TypeError, ValueError):
+        rating = 0
+
+    if not name or not 1 <= rating <= 5 or not comment or len(comment) > 1000:
+        return jsonify({"message": "Name, a rating from 1 to 5, and a comment are required."}), 400
+
+    connection = None
+    cursor = None
+    try:
+        connection = get_db_connection()
+        cursor = connection.cursor()
+        cursor.execute(
+            "INSERT INTO feedback (role, name, rating, comment) VALUES (%s, %s, %s, %s)",
+            (role, name, rating, comment),
+        )
+        connection.commit()
+        return render_template("feedback_success.html", role=role), 201
+    except mysql.connector.Error:
+        app.logger.exception("Database error while saving feedback")
+        return jsonify({"message": "We could not save your feedback. Please try again later."}), 503
+    finally:
+        if cursor:
+            cursor.close()
+        if connection and connection.is_connected():
+            connection.close()
+
+
 @app.post("/api/admin/login")
 def admin_login():
     payload = request.get_json(silent=True) or request.form
@@ -213,10 +257,37 @@ def admin_dashboard():
         buyers = cursor.fetchall()
         cursor.execute("SELECT * FROM seller_registrations ORDER BY created_at DESC")
         sellers = cursor.fetchall()
-        return render_template("admin_dashboard.html", buyers=buyers, sellers=sellers, admin_name=session.get("admin_name"))
+        cursor.execute(
+            """
+            SELECT id, role, name, rating, comment, created_at
+            FROM feedback
+            ORDER BY created_at DESC
+            """
+        )
+        feedback = cursor.fetchall()
+        buyer_feedback = [item for item in feedback if item["role"] == "buyer"]
+        seller_feedback = [item for item in feedback if item["role"] == "seller"]
+        return render_template(
+            "admin_dashboard.html",
+            buyers=buyers,
+            sellers=sellers,
+            feedback=feedback,
+            buyer_feedback=buyer_feedback,
+            seller_feedback=seller_feedback,
+            admin_name=session.get("admin_name"),
+        )
     except mysql.connector.Error:
         app.logger.exception("Database error loading admin dashboard")
-        return render_template("admin_dashboard.html", buyers=[], sellers=[], admin_name=session.get("admin_name"), error="Registrations are unavailable. Check the MySQL connection."), 503
+        return render_template(
+            "admin_dashboard.html",
+            buyers=[],
+            sellers=[],
+            feedback=[],
+            buyer_feedback=[],
+            seller_feedback=[],
+            admin_name=session.get("admin_name"),
+            error="Registrations and feedback are unavailable. Check the MySQL connection.",
+        ), 503
     finally:
         if cursor:
             cursor.close()

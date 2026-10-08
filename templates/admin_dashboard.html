@@ -89,6 +89,14 @@
                     sellers
                 </span>
 
+                <strong>
+                    {{ feedback|length }}
+                </strong>
+
+                <span>
+                    feedback
+                </span>
+
             </div>
 
         </div>
@@ -320,6 +328,58 @@
 
                 <p class="empty-state">
                     No seller registrations yet.
+                </p>
+
+            {% endif %}
+
+        </section>
+
+
+        <!-- ================= CUSTOMER FEEDBACK ================= -->
+        <section class="data-section">
+
+            <div class="section-label">
+
+                <span>03</span>
+
+                <h2>
+                    Customer feedback
+                </h2>
+
+            </div>
+
+            {% if feedback %}
+
+                <div class="feedback-list">
+
+                    {% for item in feedback %}
+
+                        <article class="feedback-card">
+                            <div class="feedback-card-head">
+                                <div>
+                                    <span class="feedback-role">
+                                        {{ item.role|title }} feedback
+                                    </span>
+                                    <h3>{{ item.name }}</h3>
+                                </div>
+
+                                <div class="feedback-meta">
+                                    <strong>{{ item.rating }}/5</strong>
+                                    <time>{{ item.created_at }}</time>
+                                </div>
+                            </div>
+
+                            <p>{{ item.comment }}</p>
+                        </article>
+
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <p class="empty-state">
+                    No customer feedback has been submitted yet.
                 </p>
 
             {% endif %}

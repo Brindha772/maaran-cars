@@ -20,7 +20,7 @@ if (carGallery) {
         insurance: 'Expired',
         tyres: 'Not provided',
       },
-      image: '/static/images/WhatsApp%20Product%202026-09-30%20at%2012.59.00%20PM.jpeg',
+      image: '/images/WhatsApp%20Product%202026-09-30%20at%2012.59.00%20PM.jpeg',
       alt: 'Maruti Suzuki Vitara Breeza VDI AMT from The Maaran Cars',
     },
     {
@@ -40,7 +40,7 @@ if (carGallery) {
         insurance: 'Expired',
         tyres: '50-60% remaining',
       },
-      image: '/static/images/WhatsApp%20Product%202026-09-30%20at%204.18.32%20PM.jpeg',
+      image: '/images/WhatsApp%20Product%202026-09-30%20at%204.18.32%20PM.jpeg',
       alt: 'Audi A4 35TDI Premium Plus with sunroof',
     },
     {
@@ -60,7 +60,7 @@ if (carGallery) {
         insurance: 'Live',
         tyres: 'Not provided',
       },
-      image: '/static/images/WhatsApp%20Product%202026-09-30%20at%204.21.34%20PM.jpeg',
+      image: '/images/WhatsApp%20Product%202026-09-30%20at%204.21.34%20PM.jpeg',
       alt: 'Tata Hexa 4 by 2 XTA automatic seven seater',
     },
   ];

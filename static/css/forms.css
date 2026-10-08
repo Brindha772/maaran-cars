@@ -136,6 +136,146 @@
 
 
 /* =========================================================
+   CUSTOMER FEEDBACK
+   ========================================================= */
+
+.feedback-panel {
+    margin-top: 24px;
+    padding: 32px 42px;
+    border: 1px solid var(--border-gray);
+    background: #090909;
+}
+
+.feedback-panel .form-title {
+    margin-bottom: 22px;
+}
+
+.feedback-panel form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 25px;
+}
+
+.feedback-panel label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 12px 0;
+}
+
+.feedback-panel .field-wide,
+.feedback-panel .form-submit {
+    grid-column: 1 / -1;
+}
+
+.rating-fieldset {
+    grid-column: 1 / -1;
+    margin: 12px 0;
+    padding: 0;
+    border: 0;
+}
+
+.rating-fieldset legend {
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.rating-options {
+    display: flex;
+    gap: 8px;
+}
+
+.rating-options label {
+    margin: 0;
+}
+
+.rating-options input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.rating-options span {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid var(--border-gray);
+    background: var(--black);
+    color: var(--light-gray);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.rating-options input:checked + span,
+.rating-options label:hover span {
+    border-color: var(--midnight-blue);
+    background: var(--midnight-blue);
+    color: var(--white);
+}
+
+.rating-options input:focus-visible + span {
+    outline: 2px solid var(--white);
+    outline-offset: 2px;
+}
+
+.feedback-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.feedback-card {
+    padding: 26px;
+    border: 1px solid var(--border-gray);
+    background: var(--card-black);
+}
+
+.feedback-card-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.feedback-role {
+    color: var(--midnight-blue);
+    font: 600 10px var(--display);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.feedback-card h3 {
+    margin: 6px 0 0;
+    font-size: 20px;
+}
+
+.feedback-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.feedback-meta strong {
+    color: var(--midnight-blue);
+}
+
+.feedback-meta time {
+    color: var(--light-gray);
+    font-size: 10px;
+}
+
+.feedback-card p {
+    margin: 20px 0 0;
+    color: var(--light-gray);
+    font-size: 13px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+}
+
+
+/* =========================================================
    TEXTAREA
    ========================================================= */
 
@@ -355,16 +495,24 @@ textarea:focus {
         margin-top: 20px;
     }
 
-    .registration-form {
+    .registration-form,
+    .feedback-panel {
         padding: 28px 22px;
     }
 
-    .field-grid {
+    .field-grid,
+    .feedback-panel form {
         grid-template-columns: 1fr;
     }
 
-    .field-wide {
+    .field-wide,
+    .rating-fieldset,
+    .feedback-panel .form-submit {
         grid-column: auto;
+    }
+
+    .feedback-list {
+        grid-template-columns: 1fr;
     }
 
     .dashboard-shell {
