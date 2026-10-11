@@ -14,14 +14,17 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "change-this-secret-key")
 
 
+
 def get_db_connection():
     return mysql.connector.connect(
-        host=os.getenv("MYSQL_HOST", "127.0.0.1"),
-        port=int(os.getenv("MYSQL_PORT", "3306")),
-        user=os.getenv("MYSQL_USER", "root"),
-        password=os.getenv("MYSQL_PASSWORD", ""),
-        database=os.getenv("MYSQL_DATABASE", "maaran_cars"),
+        host=os.getenv("MYSQLHOST") or os.getenv("MYSQL_HOST", "127.0.0.1"),
+        port=int(os.getenv("MYSQLPORT") or os.getenv("MYSQL_PORT", "3306")),
+        user=os.getenv("MYSQLUSER") or os.getenv("MYSQL_USER", "root"),
+        password=os.getenv("MYSQLPASSWORD") or os.getenv("MYSQL_PASSWORD", ""),
+        database=os.getenv("MYSQLDATABASE") or os.getenv("MYSQL_DATABASE", "railway"),
+        connection_timeout=10,
     )
+
 
 
 def clean(value):
